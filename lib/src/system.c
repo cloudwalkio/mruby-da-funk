@@ -45,11 +45,11 @@ mrb_system_s__set_backlight(mrb_state *mrb, mrb_value self)
 static mrb_value
 mrb_system_s_battery(mrb_state *mrb, mrb_value self)
 {
-  UINT puiPercentage;
+  /*UINT puiPercentage;*/
 
-  GEDI_POWER_BatteryGetCapacity (&puiPercentage);
+  /*GEDI_POWER_BatteryGetCapacity (&puiPercentage);*/
 
-  return mrb_fixnum_value(puiPercentage);
+  return mrb_fixnum_value(0);
 }
 
 static mrb_value
@@ -168,7 +168,7 @@ static mrb_value
 mrb_system_s_get_time(mrb_state *mrb, mrb_value self)
 {
   /*mrb_int year;*/
-  /*mrb_value array;*/
+  mrb_value array;
   /*GEDI_CLOCK_st_RTC stRTC;*/
 
   /*GEDI_CLOCK_RTCGet(&stRTC);*/

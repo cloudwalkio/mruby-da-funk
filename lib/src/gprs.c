@@ -13,7 +13,7 @@
 #include "mruby/variable.h"
 
 /*#include <gedi.h>*/
-#include <context_log.h>
+#include <mruby/ext/context_log.h>
 
 /*#if MRUBY_RELEASE_NO < 10000*/
   /*#include "error.h"*/
@@ -52,18 +52,19 @@ mrb_gprs_power(mrb_state *mrb, mrb_value klass)
 static mrb_value
 mrb_gprs_connect(mrb_state *mrb, mrb_value klass)
 {
-  mrb_value apn, user, password;
-  const char *sAPN, *sUser, *sPass;
-  int timeout=120000, ret=0;
+  /*mrb_value apn, user, password;*/
+  /*const char *sAPN, *sUser, *sPass;*/
+  /*int timeout=120000, ret=0;*/
+  int ret=0;
 
-  apn   = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@apn"));
-  sAPN  = mrb_str_to_cstr(mrb, apn);
+  /*apn   = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@apn"));*/
+  /*sAPN  = mrb_str_to_cstr(mrb, apn);*/
 
-  user  = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@user"));
-  sUser = mrb_str_to_cstr(mrb, user);
+  /*user  = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@user"));*/
+  /*sUser = mrb_str_to_cstr(mrb, user);*/
 
-  password = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@password"));
-  sPass    = mrb_str_to_cstr(mrb, password);
+  /*password = mrb_cv_get(mrb, klass, mrb_intern_lit(mrb, "@password"));*/
+  /*sPass    = mrb_str_to_cstr(mrb, password);*/
 
   /*ret = GEDI_GSM_GPRS_Open(sAPN, sUser, sPass, timeout);*/
 
@@ -97,7 +98,7 @@ mrb_gprs_info(mrb_state *mrb, mrb_value klass)
   /*mrb_int ret = 0, iInfo = 0;*/
   /*unsigned int puiLen = 2048;*/
   /*char szConfig[2048];*/
-  /*mrb_value array;*/
+  mrb_value array;
 
   /*memset(szConfig, 0, sizeof(szConfig));*/
 
@@ -106,7 +107,7 @@ mrb_gprs_info(mrb_state *mrb, mrb_value klass)
   /*ret = GEDI_GSM_InfoGet(iInfo, (char *)&szConfig, &puiLen);*/
 
   array = mrb_ary_new(mrb);
-  mrb_ary_push(mrb, array, mrb_fixnum_value(ret));
+  mrb_ary_push(mrb, array, mrb_fixnum_value(0));
   /*if (ret == GEDI_RET_OK) {*/
     /*mrb_ary_push(mrb, array, mrb_str_new(mrb, (char *)&szConfig, puiLen));*/
   /*}*/

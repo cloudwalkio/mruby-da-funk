@@ -16,7 +16,7 @@ static mrb_value
 mrb_smart_s_status(mrb_state *mrb, mrb_value self)
 {
   /*mrb_int slot, status=0, ret;*/
-  /*mrb_value array;*/
+  mrb_value array;
 
   /*mrb_get_args(mrb, "i", &slot);*/
 
