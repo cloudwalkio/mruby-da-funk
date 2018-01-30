@@ -1,0 +1,3 @@
+[submodule "lib/main"]
+	path = lib/main
+	url = https://github.com/cloudwalkio/main.git
