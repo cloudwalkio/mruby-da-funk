@@ -73,7 +73,7 @@ else
     FileUtils.cd MRUBY_DA_FUNK_MAIN_ROOT
     ENV["MRBC"] ||= File.join(MRUBY_DA_FUNK_MRUBY_ROOT, "bin", "mrbc")
     sh("bundle install")
-    sh("bundle exec rake")
+    sh("bundle exec ruby -e 'Bundler.with_clean_env { system %( bundle exec rake ) }'")
     FileUtils.cd MRUBY_DA_FUNK_ROOT
     FileUtils.rm_rf "out"
     FileUtils.mkdir_p "out"
