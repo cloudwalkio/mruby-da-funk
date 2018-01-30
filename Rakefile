@@ -1,5 +1,4 @@
 require 'fileutils'
-require './build_config.rb'
 
 MRUBY_DA_FUNK_ROOT       = ENV["MRUBY_DA_FUNK_ROOT"] || File.join(File.dirname(File.expand_path(__FILE__)))
 MRUBY_DA_FUNK_MRUBY_ROOT = File.join(MRUBY_DA_FUNK_ROOT, "mruby")
@@ -8,6 +7,7 @@ MRUBY_DA_FUNK_ENV        = ENV["MRUBY_DA_FUNK_ENV"] == "production" ? "productio
 SIGNATURE                = ENV["SIGNATURE"] == "production" ? "production" : "mockup"
 MRUBY_VERSION            = "1.3.0"
 
+require File.join(MRUBY_DA_FUNK_ROOT, 'build_config.rb')
 file :mruby do
   sh "git clone --branch 1.3.0 https://github.com/mruby/mruby.git "
 end
