@@ -32,7 +32,7 @@ def gem_config(conf)
   conf.gem :github => "cloudwalkio/mruby-socket", :branch => "no-force"
   conf.gem :github => "iij/mruby-pack", :checksum_hash => "88a7fedea413568a1ff0410e109ff55a03b63a5f"
   conf.gem :mgem => "mruby-polarssl"
-  conf.gem :iij => "mruby-qrcode"
+  conf.gem :mgem => "mruby-qrcode"
   conf.gem :mgem => "mruby-miniz"
   conf.gem :mgem => "mruby-sleep"
   conf.gem :mgem => "mruby-json"
