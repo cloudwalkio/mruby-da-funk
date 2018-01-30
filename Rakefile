@@ -14,23 +14,26 @@ end
 
 if ENV["MRUBY_CONFIG"] == File.expand_path(__FILE__)
   MRuby::Build.new do |conf|
+    enable_debug
+
+    conf.gem :core => "mruby-bin-mrbc"
+    conf.gem :core => "mruby-bin-mirb"
+    conf.gem :core => "mruby-bin-mruby"
+    conf.gem :core => "mruby-bin-strip"
+
     if ENV['VisualStudioVersion']
       toolchain :visualcpp
     else
       toolchain :gcc
     end
 
+    conf.bins = %w(mrbc)
+
     if RUBY_PLATFORM =~ /x86_64-linux/i
     elsif RUBY_PLATFORM =~ /linux/i
       conf.cc.flags << %w(-msse2)
       conf.linker.flags << %w(-msse2)
     end
-
-    conf.gem :core => "mruby-bin-mirb"
-    conf.gem :core => "mruby-bin-mruby"
-    conf.gem :core => "mruby-bin-strip"
-
-    enable_debug
   end
 
   # Define cross build settings
