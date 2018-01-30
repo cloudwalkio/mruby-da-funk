@@ -22,7 +22,7 @@ void mrb_crypto_init(mrb_state *mrb);
 void mrb_smart_card_init(mrb_state *mrb);
 
 void
-mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
+mrb_mruby_da_funk_gem_init(mrb_state* mrb)
 {
 
   mrb_system_init(mrb); DONE;
@@ -39,7 +39,7 @@ mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
 }
 
 void
-mrb_mruby_cloudwalk_platform_gem_final(mrb_state* mrb)
+mrb_mruby_da_funk_gem_final(mrb_state* mrb)
 {
 }
 
