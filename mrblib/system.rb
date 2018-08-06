@@ -16,14 +16,26 @@ class Platform
     GEDI_FS_STORAGE_SD_CARD  = 3
     #SD Card storage  - Created files with this option will be accessible by all applications in the device.
 
-    # TODO Add support to zip files
+    # Calls examples
+    # Device::System.update("./shared/application.aip;system")
+    # Device::System.update("./shared/application.p3a;system")
+    # Device::System.update("./shared/main.zip;/")
+    # Device::System.update("./shared/font.tar.gz;system")
+    # Device::System.update("./shared/font.p3t;system")
+    # Device::System.update("./shared/main.bmp;/shared")
     def self.update(path)
-      ret_install = self.install("MAINAPP", path, GEDI_FS_STORAGE_PRIVATE)
-      if ret_install == RET_OK
-        true
+      file, type = path.split(";")
+
+      if type == "system"
+        if self.install(nil, path, nil)
+          # set system update flag
+        else
+          ContextLog.info "System Update - Error [#{path}][#{ret_install.inspect}]"
+          false
+        end
       else
-        ContextLog.info "System Update - Error [#{path}][#{ret_install.inspect}]"
-        false
+        true
+        # copy files
       end
     end
 
